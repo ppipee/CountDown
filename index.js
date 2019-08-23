@@ -1,9 +1,13 @@
 var time = 0;
 var time_present = 0;
+var pause = false;
 $(document).ready(function () {
-    $("#settime").on("keypress", function () {
-        setTime();
-        start();
+    $("#settime").on("keypress", function (event) {
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if (keycode == '13') {
+            setTime();
+            start();
+        }
     });
 
     $("#start").on("click", function () {
@@ -14,25 +18,51 @@ $(document).ready(function () {
         time_present = 0;
         clear();
     });
+    $("#pause").on("click", function () {
+        pause = !pause;
+        if (!pause)
+            start();
+        else if (pause)
+            time = time_present;
+    })
 });
 
 function start() {
     if (isFinite(time) && time > 0) {
         console.log(time)
         $("#time").text(time);
-        $("#time").show();
-        $(".inputs").hide();
-        $("#start").css({ "height": "60px" })
-        $("#stop").css({ "height": "60px" })
+        showStart();
+        setHeight(60);
         time_present = time;
         setTimeout(countDown, 1000);
     }
 }
-function clear() {
+
+function showStart() {
+    $("#time").show();
+    $("#pause").show();
+    $("#start").hide();
+    $(".inputs").hide();
+}
+
+function showStop() {
     $("#time").hide();
+    $("#pause").hide();
+    $("#start").show();
     $(".inputs").show();
-    $("#start").css({ "height": "80px" })
-    $("#stop").css({ "height": "80px" })
+}
+
+function setHeight(height) {
+    $("#start").css({ "height": height + "px" })
+    $("#stop").css({ "height": height + "px" })
+    $("#pause").css({ "height": height + "px" })
+
+    // $("#" + id).css({ "height": height + "px" })
+}
+
+function clear() {
+    showStop();
+    setHeight(80);
     if ($("#clear:checked").val() == "on") {
         $("#settime").val(0);
         time = 0;
@@ -48,7 +78,7 @@ function setTime() {
 function countDown() {
     time_present -= 1;
     console.log(time_present)
-    if (time_present >= 0) {
+    if (time_present >= 0 && !pause) {
         setTimeout(countDown, 1000);
         $("#time").text(time_present);
         if (time_present == 0) {
