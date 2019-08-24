@@ -4,6 +4,7 @@ body {
     background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
     background-repeat: no-repeat;
     overflow-x: hidden;
+    overflow-y: hidden;
     font-family: 'Teko', sans-serif;
 }
 
@@ -20,9 +21,9 @@ body {
 #time {
     display: none;
     padding: 0;
-    margin-top: 30px;
+    margin: 45px 0 5px 0;
     font-size: 330px;
-    line-height: 300px;
+    line-height: 200px;
     vertical-align: middle;
 }
 
