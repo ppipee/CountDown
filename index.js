@@ -25,6 +25,9 @@ $(document).ready(function () {
         else if (pause)
             time = time_present;
     })
+
+    $("#pause").hide();
+
 });
 
 function start() {
