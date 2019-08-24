@@ -7,6 +7,7 @@ body {
     font-family: 'Teko', sans-serif;
 }
 
+
 .count-down {
     height: 100vh;
     padding: 0;
@@ -60,6 +61,7 @@ body {
     background-image: linear-gradient(to bottom, #fcd7e3 100%, #fed6e3 100%);
 }
 
+
 #settime {
     font-family: 'Teko';
     text-align: center;
@@ -73,3 +75,4 @@ body {
     font-size: calc(100%*1.5);
     outline: none;
 }
+

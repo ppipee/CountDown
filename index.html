@@ -10,13 +10,18 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./slide.css" />
   </head>
   <body>
     <div class="count-down">
       <div id="time"><span>0</span></div>
       <div class="inputs">
-        <input id="settime" placeholder="TimeCount"/>
-        <input id="clear" type="checkbox" />auto clear
+        <input id="settime" placeholder="TimeCount" />
+        <label class="switch-wrap">
+          <input id="clear" type="checkbox" />
+          <div class="switch"></div>
+          <p id="text-clear">clear</p>
+        </label>
       </div>
       <div class="operations">
         <button id="start">Start!</button>

@@ -2,6 +2,7 @@ var time = 0;
 var time_present = 0;
 var pause = false;
 $(document).ready(function () {
+
     $("#settime").on("keypress", function (event) {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if (keycode == '13') {
@@ -9,6 +10,14 @@ $(document).ready(function () {
             start();
         }
     });
+
+    $("#clear").on("click", function () {
+        console.log($("#clear:checked").val());
+        if ($("#clear:checked").val() == "on") { $(".switch-wrap").css({ "background": "linear-gradient(to left, #bbecff 0%, #6bc4ff 100%)" }); }
+        else {
+            $(".switch-wrap").css({ "background": "rgba(255, 255, 255, 0.404)" });
+        }
+    })
 
     $("#start").on("click", function () {
         setTime();

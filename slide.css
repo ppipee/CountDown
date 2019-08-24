@@ -1,0 +1,47 @@
+.switch-wrap {
+  cursor: pointer;
+  background-color:rgba(255, 255, 255, 0.404);
+  border: 1px solid white;
+  padding: 7px;
+  width: 47px;
+  height: 20px;
+  border-radius: 30px;
+}
+.switch-wrap input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch {
+  position: relative;
+  top: -3px;
+  left: -2px;
+  height: 25px;
+  width: 50px;
+  display: grid;
+  grid-template-columns: 0fr 1fr 1fr;
+  transition: 0.2s;
+}
+.switch::after {
+  content: "";
+  border-radius: 25px;
+  background:linear-gradient(to top, #ffa7c4 0%, #ffc5d8 100%);
+  ;
+  grid-column: 2;
+  transition: background 0.2s;
+}
+
+input#clear:checked + .switch {
+  grid-template-columns: 1fr 1fr 0fr;
+}
+/* 
+input#clear:checked::after {
+  background-color: #52cf71;
+} */
+
+#text-clear{
+  text-align: center;
+  margin: 5px 0;
+}
