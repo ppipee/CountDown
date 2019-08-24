@@ -2,7 +2,6 @@ var time = 0;
 var time_present = 0;
 var pause = false;
 $(document).ready(function () {
-
     $("#settime").on("keypress", function (event) {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if (keycode == '13') {
@@ -73,6 +72,7 @@ function setHeight(height) {
 }
 
 function clear() {
+    pause = false;
     showStop();
     setHeight(80);
     if ($("#clear:checked").val() == "on") {
